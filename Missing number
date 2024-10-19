@@ -1,0 +1,27 @@
+//https://leetcode.com/problems/missing-number/submissions/1426884400/
+
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int xorAll = 0;
+        int xorArray = 0;
+        for (int i = 0; i <= n; i++) {
+            xorAll ^= i;
+        }
+        for (int num : nums) {
+            xorArray ^= num;
+        }
+        return xorAll ^ xorArray;
+    }
+}
+
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        xor_all = 0
+        xor_array = 0
+        for i in range(n + 1):
+            xor_all ^= i
+        for num in nums:
+            xor_array ^= num
+        return xor_all ^ xor_array
